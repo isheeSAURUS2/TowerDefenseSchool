@@ -6,50 +6,66 @@ using UnityEngine.UIElements;
 
 public class TileScript : MonoBehaviour
 {
-    [SerializeField] private Color OffsetColor, BaseColor;
+    [SerializeField] private Color offsetColor, baseColor;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private GameObject Highlighter;
-    public GameObject TowerPlacementUI;
-    [SerializeField]private bool CanClickThisGridSquare = false;
+    [SerializeField] public GameObject highlighter;
+    public GameObject towerPlacementUI;
+    [SerializeField] public bool canClickThisGridSquare = false;
+    [SerializeField] private GameObject towerPlacementManager;
+    private TowerPlacementOnTile towerPlacementManagerScript;
+    [HideInInspector]public bool isInUI;
+    [SerializeField] private GameObject thisGameObject;
+    public bool hasTower;
+
 
     private void Start()
     {
-        TowerPlacementUI = GameObject.FindGameObjectWithTag("TowerPlacementUI");
+        towerPlacementManagerScript = towerPlacementManager.GetComponent<TowerPlacementOnTile>();
+        isInUI = false;
+        thisGameObject = gameObject;
     }
 
     public void Init(bool IsOffset)
     {
         if (IsOffset == true)
         {
-            spriteRenderer.color = OffsetColor;
+            spriteRenderer.color = offsetColor;
         }
         else if (IsOffset == false) 
         {
-            spriteRenderer.color = BaseColor;
+            spriteRenderer.color = baseColor;
         }else if (transform.position == Vector3.zero)
         {
-            spriteRenderer.color = OffsetColor;
+            spriteRenderer.color = offsetColor;
         }
     }
     private void OnMouseEnter()
     {
-        Highlighter.SetActive(true);
-        CanClickThisGridSquare = true;
+        if (!isInUI && !hasTower)
+        {
+            highlighter.SetActive(true);
+            canClickThisGridSquare = true;
+        }
     }
     private void OnMouseExit()
     {
-        Highlighter.SetActive(false); 
-        CanClickThisGridSquare = false;
+        if (!isInUI && !hasTower)
+        {
+            highlighter.SetActive(false);
+            canClickThisGridSquare = false;
+        }
     }
     private void Update()
     {
-        if(CanClickThisGridSquare && Input.GetMouseButtonDown(0))
+        if(canClickThisGridSquare && Input.GetMouseButtonDown(0)&&!isInUI&&!hasTower)
         {
-            Transform[] uiArray = TowerPlacementUI.GetComponentsInChildren<Transform>(true);
+            Transform[] uiArray = towerPlacementUI.GetComponentsInChildren<Transform>(true);
             for (int i = 0; i < uiArray.Length; i++)
             {
                 uiArray[i].gameObject.SetActive(true);
             }
+            towerPlacementManagerScript.PressedTile(thisGameObject);
+            
             //Time.timeScale = 0f;
         }
     }

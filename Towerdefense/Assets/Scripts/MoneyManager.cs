@@ -25,4 +25,8 @@ public class MoneyManager : MonoBehaviour
             Money += 2 * MoneyMultiplier;
         }
     }
+    public void TakeMoney(int moneyToTake)
+    {
+        Money -= moneyToTake;
+    }
 }

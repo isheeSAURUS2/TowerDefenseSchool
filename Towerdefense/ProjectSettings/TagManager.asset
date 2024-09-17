@@ -6,6 +6,10 @@ TagManager:
   tags:
   - MoneyManager
   - TowerPlacementUI
+  - Bullet
+  - Tile
+  - Enemy
+  - Tower
   layers:
   - Default
   - TransparentFX

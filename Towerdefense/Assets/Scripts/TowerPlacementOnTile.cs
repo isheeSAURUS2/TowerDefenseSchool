@@ -1,77 +1,108 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
 public class TowerPlacementOnTile : MonoBehaviour
 {
-    [SerializeField] GameObject MoneyManager;
-    [SerializeField] private int Money;
-    [SerializeField] int StandardTowerCost;
-    [SerializeField] int SilverTowerCost;
-    [SerializeField] int GoldTowerCost;
-    [SerializeField] GameObject TowerStandard;
-    [SerializeField] GameObject TowerSilver;
-    [SerializeField] GameObject TowerGold;
-    private GameObject TowerPlacementUI;
-    
+    [SerializeField] GameObject moneyManager;
+    private MoneyManager moneyManagerScript;
+    [SerializeField] private int money;
+    [SerializeField] int standardTowerCost;
+    [SerializeField] int silverTowerCost;
+    [SerializeField] int goldTowerCost;
+    [SerializeField] GameObject towerStandard;
+    [SerializeField] GameObject towerSilver;
+    [SerializeField] GameObject towerGold;
+    [SerializeField] GameObject towerPlacementUI;
+    [SerializeField]private GameObject currentlyPlacingTile;
+    public List<TileScript> tileScripts;
     private void Start()
     {
-        TowerPlacementUI = GetComponent<TileScript>().TowerPlacementUI;
-        MoneyManager = GameObject.FindGameObjectWithTag("MoneyManager");
+        StartCoroutine(MakeTileList());
+        moneyManagerScript = moneyManager.GetComponent<MoneyManager>();
         
     }
     private void Update()
     {
-        Money = MoneyManager.GetComponent<MoneyManager>().Money;
+        money = moneyManager.GetComponent<MoneyManager>().Money;
     }
     public void SpawnStandardTower()
     {
-        if (Money >= StandardTowerCost)
+        if (money >= standardTowerCost)
         {
-            Instantiate(TowerStandard);
-            
+            Instantiate(towerStandard, currentlyPlacingTile.transform.position, Quaternion.identity);
+            moneyManagerScript.TakeMoney(standardTowerCost);
         }
-        else if(Money < StandardTowerCost)
+        else if (money < standardTowerCost)
         {
             Debug.LogWarning("not enough doekoe");
         }
-        
+
         DeactivateTowerPlacementUI();
     }
     public void SpawnSilverTower()
     {
-        if (Money >= SilverTowerCost)
+        if (money >= silverTowerCost)
         {
-            Instantiate(TowerSilver);
-
+            Instantiate(towerSilver, currentlyPlacingTile.transform.position, Quaternion.identity);
+            moneyManagerScript.TakeMoney(silverTowerCost);
         }
-        else if (Money < SilverTowerCost)
+        else if (money < silverTowerCost)
         {
             Debug.LogWarning("not enough doekoe");
         }
-        
+
         DeactivateTowerPlacementUI();
     }
     public void SpawnGoldTower()
     {
-        if (Money >= GoldTowerCost)
+        if (money >= goldTowerCost)
         {
-            Instantiate(TowerGold);
+            Instantiate(towerGold, currentlyPlacingTile.transform.position, Quaternion.identity);
+            moneyManagerScript.TakeMoney(goldTowerCost);
         }
-        else if (Money < GoldTowerCost)
+        else if (money < goldTowerCost)
         {
             Debug.LogWarning("not enough doekoe");
         }
-        
+
         DeactivateTowerPlacementUI();
     }
     private void DeactivateTowerPlacementUI()
     {
-        Transform[] uiArray = TowerPlacementUI.GetComponentsInChildren<Transform>(true);
+        Transform[] uiArray = towerPlacementUI.GetComponentsInChildren<Transform>(true);
         for (int i = 0; i < uiArray.Length; i++)
         {
             uiArray[i].gameObject.SetActive(false);
             Time.timeScale = 1f;
+        }
+        currentlyPlacingTile = null;
+        for (int i = 0; i < tileScripts.Count; i++)
+        {
+            tileScripts[i].isInUI = false;
+            tileScripts[i].highlighter.SetActive(false);
+            tileScripts[i].canClickThisGridSquare = false;
+        }
+
+    }
+    public void PressedTile(GameObject Tile)
+    {
+        currentlyPlacingTile = Tile;
+        for (int i = 0; i < tileScripts.Count; i++)
+        {
+            tileScripts[i].isInUI = true;
+        }
+    }
+    private IEnumerator MakeTileList()
+    {
+        yield return new WaitForSeconds(0.01f);
+        TileScript[] tilesDetected = GameObject.FindObjectsOfType<TileScript>();
+        for (int i = 0; i < tilesDetected.Length; i++)
+        {
+            tileScripts.Add(tilesDetected[i]);
         }
     }
 }
