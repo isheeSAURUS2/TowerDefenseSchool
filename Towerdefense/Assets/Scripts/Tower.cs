@@ -6,7 +6,7 @@ public class Tower : MonoBehaviour
 {
     enum towerType { standard, silver, gold };
     [SerializeField] GameObject bullet;
-    [SerializeField]int health;
+    public int health;
     [SerializeField] private towerType typeOfTower;
     [SerializeField] int standardTowerDamage;
     [SerializeField] int silverTowerDamage;
@@ -51,7 +51,7 @@ public class Tower : MonoBehaviour
     }
     private void Update()
     {
-        if (health < 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
             onTile.GetComponent<TileScript>().hasTower = false;
@@ -65,24 +65,5 @@ public class Tower : MonoBehaviour
             onTile.GetComponent<TileScript>().hasTower = true;
         }
     }
-    public IEnumerator TakeDamage(int damageToTake)
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(4f);
-            health -= damageToTake;
-        }
-    }
-    public void StartOrStopTakingDamage(bool start, int enemyAttack)
-    {
-        if (start)
-        {
-            StartCoroutine(TakeDamage(enemyAttack));
-        }
-        else
-        {
-            StopCoroutine("TakeDamage");
-        }
-    }
-
+    
 }

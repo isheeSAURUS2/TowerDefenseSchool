@@ -101,8 +101,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 6358721419451351650, guid: fe9e11c60c75a8e41881240358ec9e97, type: 3}
+  health: 0
   typeOfTower: 2
-  standardTowerDamage: 5
+  standardTowerDamage: 4
   silverTowerDamage: 10
   goldTowerDamage: 15
   standardTowerFireRate: 2
@@ -186,7 +187,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6454695345090958056}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -203,5 +204,5 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
+  m_CollisionDetection: 0
+  m_Constraints: 7
