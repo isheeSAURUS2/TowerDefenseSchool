@@ -12,6 +12,7 @@ public class EnemySpawnScript : MonoBehaviour
     [SerializeField] int numberOfEnemysMax = 1;
     [SerializeField] int timeBetweenEnemys = 10;
     [SerializeField] float elapsedTime;
+    [SerializeField] MoneyManager moneyManager;
     
     // Update is called once per frame
     private void Start()
@@ -50,7 +51,10 @@ public class EnemySpawnScript : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenEnemys);
             for (int i = 0; i < Random.Range(1,numberOfEnemysMax); i++)
             {
-                Instantiate(RandomizeType(), spawnerLocations[Random.Range(0, 5)].position, Quaternion.identity);
+                int newRandomSpawner = Random.Range(0, 5);
+                GameObject newEnemy = Instantiate(RandomizeType(), spawnerLocations[newRandomSpawner].position, Quaternion.identity);
+                newEnemy.GetComponent<SpriteRenderer>().sortingOrder = spawnerLocations[newRandomSpawner].gameObject.GetComponent<SortingLayervariable>().sortingLayerVariable;
+                newEnemy.GetComponent<Enemy>().moneyManager = moneyManager;
                 yield return new WaitForSeconds(0.5f);
             }
         }

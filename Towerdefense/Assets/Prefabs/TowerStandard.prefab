@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6041085286486488142}
   - component: {fileID: 586906535364325520}
   - component: {fileID: 5709386596645401478}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TowerStandard
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -102,8 +102,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 6358721419451351650, guid: fe9e11c60c75a8e41881240358ec9e97, type: 3}
   health: 0
+  damageToUse: 0
+  fireRateToUse: 0
   typeOfTower: 0
-  standardTowerDamage: 4
+  standardTowerDamage: 6
   silverTowerDamage: 10
   goldTowerDamage: 15
   standardTowerFireRate: 2
@@ -112,7 +114,6 @@ MonoBehaviour:
   standardTowerHealth: 20
   silverTowerHealth: 40
   goldTowerHealth: 50
-  onTile: {fileID: 0}
 --- !u!95 &6041085286486488142
 Animator:
   serializedVersion: 5

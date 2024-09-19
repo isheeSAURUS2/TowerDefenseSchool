@@ -20,9 +20,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] int goldEnemyAttack;
     [SerializeField] enemyType type;
     [SerializeField] Rigidbody2D rb;
+    public MoneyManager moneyManager;
+    
     float tickTimer;
     void Start()
     {
+
         if (type == enemyType.standard)
         {
             health = standardEnemyHealth;
@@ -47,6 +50,7 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+            moneyManager.Money += 100;
             Destroy(gameObject);
         }
     }

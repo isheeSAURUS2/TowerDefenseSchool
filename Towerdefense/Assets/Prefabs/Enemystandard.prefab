@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 3739534140614894196}
   - component: {fileID: 5174430471300770005}
   - component: {fileID: 3771876481747380496}
-  - component: {fileID: 4209039784244561082}
   - component: {fileID: 6224036493070114947}
-  m_Layer: 0
+  - component: {fileID: 1947094074843102055}
+  - component: {fileID: 4599654065996878091}
+  m_Layer: 7
   m_Name: Enemystandard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -75,9 +76,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.65693015, g: 0.3479886, b: 0.8679245, a: 1}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: -1232169345, guid: 357a1fe45f7aab545acb2fc6ede05d17, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,10 +113,52 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!58 &4209039784244561082
-CircleCollider2D:
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &6224036493070114947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136206048714676082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c4ba05b39c8f3499720446835853a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 22
+  standardEnemyHealth: 50
+  silverEnemyHealth: 75
+  goldEnemyHealth: 125
+  standardEnemyAttack: 2
+  silverEnemyAttack: 3
+  goldEnemyAttack: 5
+  type: 0
+  rb: {fileID: 3771876481747380496}
+--- !u!95 &1947094074843102055
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136206048714676082}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9aa5ef00f2819014ca66112cac953f8d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &4599654065996878091
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,27 +189,16 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0059058666, y: -0.16831283}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.3125}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &6224036493070114947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136206048714676082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24c4ba05b39c8f3499720446835853a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  standardEnemyHealth: 50
-  silverEnemyHealth: 75
-  goldEnemyHealth: 125
-  standardEnemyAttack: 2
-  silverEnemyAttack: 3
-  goldEnemyAttack: 5
-  type: 0
-  rb: {fileID: 3771876481747380496}
+  m_Size: {x: 0.5629773, y: 0.9758743}
+  m_EdgeRadius: 0

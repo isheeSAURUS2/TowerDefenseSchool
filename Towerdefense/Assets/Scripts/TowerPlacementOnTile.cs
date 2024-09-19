@@ -71,7 +71,7 @@ public class TowerPlacementOnTile : MonoBehaviour
 
         DeactivateTowerPlacementUI();
     }
-    private void DeactivateTowerPlacementUI()
+    public void DeactivateTowerPlacementUI()
     {
         Transform[] uiArray = towerPlacementUI.GetComponentsInChildren<Transform>(true);
         for (int i = 0; i < uiArray.Length; i++)

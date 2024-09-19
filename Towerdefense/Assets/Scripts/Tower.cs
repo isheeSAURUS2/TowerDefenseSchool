@@ -7,6 +7,9 @@ public class Tower : MonoBehaviour
     enum towerType { standard, silver, gold };
     [SerializeField] GameObject bullet;
     public int health;
+    public int damageToUse;
+    public float fireRateToUse;
+
     [SerializeField] private towerType typeOfTower;
     [SerializeField] int standardTowerDamage;
     [SerializeField] int silverTowerDamage;
@@ -17,27 +20,37 @@ public class Tower : MonoBehaviour
     [SerializeField] int standardTowerHealth;
     [SerializeField] int silverTowerHealth;
     [SerializeField] int goldTowerHealth;
-    [SerializeField] GameObject onTile;
+    GameObject onTile;
+    LayerMask mask;
+    Coroutine newRoutine;
+    bool hasStartedShooting = false;
 
     // Start is called before the first frame update
 
     // Update is called once per frame
     private void Start()
     {
+        mask = LayerMask.GetMask("Enemy");
         if (typeOfTower == towerType.standard)
         {
-            StartCoroutine(ShootBullet(standardTowerDamage, standardTowerFireRate));
+
+            fireRateToUse = standardTowerFireRate;
+            damageToUse = standardTowerDamage;
             health = standardTowerHealth;
         }
         else if (typeOfTower == towerType.silver)
         {
-            StartCoroutine(ShootBullet(silverTowerDamage, silverTowerFireRate));
+
             health = silverTowerHealth;
+            fireRateToUse = goldTowerFireRate;
+            damageToUse = goldTowerDamage;
         }
         else if (typeOfTower == towerType.gold)
         {
-            StartCoroutine(ShootBullet(goldTowerDamage, goldTowerFireRate));
+
             health = goldTowerHealth;
+            fireRateToUse = goldTowerFireRate;
+            damageToUse = goldTowerDamage;
         }
     }
     public IEnumerator ShootBullet(int bulletDamage, float fireRate)
@@ -56,6 +69,25 @@ public class Tower : MonoBehaviour
             Destroy(gameObject);
             onTile.GetComponent<TileScript>().hasTower = false;
         }
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 8f, mask);
+        Debug.DrawRay(transform.position, Vector3.right * 8, Color.red);
+
+        if (hit.collider != null)
+        {
+            if (hit.transform.CompareTag("Enemy") && !hasStartedShooting)
+            {
+                Debug.LogWarning("colliding with enemy");
+                newRoutine = StartCoroutine(ShootBullet(damageToUse, fireRateToUse));
+                hasStartedShooting = true;
+            }
+            
+        }
+        else if(hit.collider == null && hasStartedShooting)
+        {
+            Debug.Log("Stopped Coliding");
+            StopCoroutine(newRoutine);
+            hasStartedShooting = false;
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -65,5 +97,6 @@ public class Tower : MonoBehaviour
             onTile.GetComponent<TileScript>().hasTower = true;
         }
     }
-    
+
+
 }
