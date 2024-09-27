@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5583621359215337033}
   - component: {fileID: 3119855814137116502}
   - component: {fileID: 8492735618953046248}
+  - component: {fileID: 5015448283627970771}
   m_Layer: 7
   m_Name: EnemySilver
   m_TagString: Enemy
@@ -170,3 +171,17 @@ MonoBehaviour:
   goldEnemyAttack: 5
   type: 1
   rb: {fileID: 5583621359215337033}
+  moneyManager: {fileID: 0}
+--- !u!114 &5015448283627970771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6666774803293507703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2454f040bf2394fac40265312f385a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashTime: 0.3

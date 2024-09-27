@@ -10,7 +10,7 @@ public class EnemySpawnScript : MonoBehaviour
     [SerializeField] GameObject enemyGold;
     [SerializeField] List<GameObject> enemyTypes;
     [SerializeField] int numberOfEnemysMax = 1;
-    [SerializeField] int timeBetweenEnemys = 10;
+    [SerializeField] float timeBetweenEnemys = 10;
     [SerializeField] float elapsedTime;
     [SerializeField] MoneyManager moneyManager;
     
@@ -24,22 +24,18 @@ public class EnemySpawnScript : MonoBehaviour
     private void Update()
     {
         elapsedTime += Time.deltaTime;
+        if(elapsedTime >= 50f)
+        {
+            numberOfEnemysMax++;
+            timeBetweenEnemys -= 0.2f;
+            elapsedTime = 0;
+        }
     }
     private IEnumerator RampUpNumbers()
     {
-        yield return new WaitForSeconds(60f);
-        numberOfEnemysMax++;
-        numberOfEnemysMax++;
-        yield return new WaitForSeconds(60f);
-        numberOfEnemysMax++;
-        timeBetweenEnemys--;
+        yield return new WaitForSeconds(120f);
         enemyTypes.Add(enemySilver);
-        yield return new WaitForSeconds(60f);
-        numberOfEnemysMax++;
-        timeBetweenEnemys--;
-        yield return new WaitForSeconds(60f);
-        numberOfEnemysMax++;
-        timeBetweenEnemys--;
+        yield return new WaitForSeconds(120f);       
         enemyTypes.Add(enemyGold);
 
     }

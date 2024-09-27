@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -22,10 +24,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     public MoneyManager moneyManager;
     
+
+    
     float tickTimer;
     void Start()
     {
-
+        
         if (type == enemyType.standard)
         {
             health = standardEnemyHealth;
@@ -81,5 +85,9 @@ public class Enemy : MonoBehaviour
     {
         //Debug.Log($"took: {damageToTake} Damage");
         health -= damageToTake;
+        GetComponent<Hitflash>().StartHitFlash();
     }
+
+    
+
 }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5636674245167085524
+--- !u!1 &6454695345090958056
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1723553292660641571}
-  - component: {fileID: 371637050358005451}
-  - component: {fileID: -353922249295796992}
-  - component: {fileID: 1451587863281644835}
-  - component: {fileID: 3182270517135268852}
-  - component: {fileID: 4784279829129846255}
+  - component: {fileID: 447570390090464839}
+  - component: {fileID: 5043401895624576456}
+  - component: {fileID: 3075236502989054491}
+  - component: {fileID: 6405115630420978439}
+  - component: {fileID: 1272678949577328369}
+  - component: {fileID: 3468406176231774422}
   m_Layer: 8
-  m_Name: TowerSilver
+  m_Name: TowerGold
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1723553292660641571
+--- !u!4 &447570390090464839
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5636674245167085524}
+  m_GameObject: {fileID: 6454695345090958056}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 909.9563, y: 501.6245, z: 0}
@@ -36,13 +36,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &371637050358005451
+--- !u!212 &5043401895624576456
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5636674245167085524}
+  m_GameObject: {fileID: 6454695345090958056}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1733491589, guid: 1cd58e6dad61f7b4fa2abfb981fb2c88, type: 3}
+  m_Sprite: {fileID: -2052442867, guid: d81b8ab8ef893084dbb79023a36b8010, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,13 +88,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-353922249295796992
+--- !u!114 &3075236502989054491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5636674245167085524}
+  m_GameObject: {fileID: 6454695345090958056}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35f52852bfd7a724187b3b0e935f01f7, type: 3}
@@ -104,27 +104,27 @@ MonoBehaviour:
   health: 0
   damageToUse: 0
   fireRateToUse: 0
-  typeOfTower: 1
-  standardTowerDamage: 6
-  silverTowerDamage: 10
-  goldTowerDamage: 15
+  typeOfTower: 2
+  standardTowerDamage: 5
+  silverTowerDamage: 7
+  goldTowerDamage: 10
   standardTowerFireRate: 2
   silverTowerFireRate: 1.6
   goldTowerFireRate: 1.4
   standardTowerHealth: 20
   silverTowerHealth: 40
   goldTowerHealth: 50
---- !u!95 &1451587863281644835
+--- !u!95 &6405115630420978439
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5636674245167085524}
+  m_GameObject: {fileID: 6454695345090958056}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 456723ccf2d8b864daae435b2b95bbbc, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5ea06ecf7e2de8c49b7afd7f3709fb05, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -135,13 +135,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &3182270517135268852
+--- !u!61 &1272678949577328369
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5636674245167085524}
+  m_GameObject: {fileID: 6454695345090958056}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -180,14 +180,14 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.71984863, y: 0.7557068}
   m_EdgeRadius: 0
---- !u!50 &4784279829129846255
+--- !u!50 &3468406176231774422
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5636674245167085524}
+  m_GameObject: {fileID: 6454695345090958056}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
