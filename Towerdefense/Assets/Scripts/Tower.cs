@@ -9,6 +9,7 @@ public class Tower : MonoBehaviour
     public int health;
     public int damageToUse;
     public float fireRateToUse;
+    public string animationToUse;
 
     [SerializeField] private towerType typeOfTower;
     [SerializeField] int standardTowerDamage;
@@ -33,21 +34,21 @@ public class Tower : MonoBehaviour
         mask = LayerMask.GetMask("Enemy");
         if (typeOfTower == towerType.standard)
         {
-
+            animationToUse = "StandardShoot";
             fireRateToUse = standardTowerFireRate;
             damageToUse = standardTowerDamage;
             health = standardTowerHealth;
         }
         else if (typeOfTower == towerType.silver)
         {
-
+            animationToUse = "SilverShoot";
             health = silverTowerHealth;
             fireRateToUse = goldTowerFireRate;
             damageToUse = goldTowerDamage;
         }
         else if (typeOfTower == towerType.gold)
         {
-
+            animationToUse = "GoldShoot";
             health = goldTowerHealth;
             fireRateToUse = goldTowerFireRate;
             damageToUse = goldTowerDamage;
@@ -58,6 +59,7 @@ public class Tower : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(fireRate);
+            GetComponent<Animator>().Play(animationToUse);
             GameObject newBullet = Instantiate(bullet, transform.position + new Vector3(0.5f, 0f, 0f), Quaternion.Euler(new Vector3(0, 0, 30)));
             newBullet.GetComponent<Bullet>().SetDamage(bulletDamage);
         }

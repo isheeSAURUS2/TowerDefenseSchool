@@ -29,4 +29,8 @@ public class MoneyManager : MonoBehaviour
     {
         Money -= moneyToTake;
     }
+    public void Cheat()
+    {
+        Money += 30000000;
+    }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using TMPro;
 
 public class TowerPlacementOnTile : MonoBehaviour
 {
@@ -17,13 +18,15 @@ public class TowerPlacementOnTile : MonoBehaviour
     [SerializeField] GameObject towerSilver;
     [SerializeField] GameObject towerGold;
     [SerializeField] GameObject towerPlacementUI;
-    [SerializeField]private GameObject currentlyPlacingTile;
+    [SerializeField] private GameObject currentlyPlacingTile;
+    [SerializeField] TMP_Text notEnoughMoneyText;
     public List<TileScript> tileScripts;
+    
     private void Start()
     {
         StartCoroutine(MakeTileList());
         moneyManagerScript = moneyManager.GetComponent<MoneyManager>();
-        
+
     }
     private void Update()
     {
@@ -38,6 +41,7 @@ public class TowerPlacementOnTile : MonoBehaviour
         }
         else if (money < standardTowerCost)
         {
+            StartCoroutine("DisplayNoMoneyText");
             Debug.LogWarning("not enough doekoe");
         }
 
@@ -52,6 +56,7 @@ public class TowerPlacementOnTile : MonoBehaviour
         }
         else if (money < silverTowerCost)
         {
+            StartCoroutine("DisplayNoMoneyText");
             Debug.LogWarning("not enough doekoe");
         }
 
@@ -66,6 +71,7 @@ public class TowerPlacementOnTile : MonoBehaviour
         }
         else if (money < goldTowerCost)
         {
+            StartCoroutine("DisplayNoMoneyText");
             Debug.LogWarning("not enough doekoe");
         }
 
@@ -104,5 +110,12 @@ public class TowerPlacementOnTile : MonoBehaviour
         {
             tileScripts.Add(tilesDetected[i]);
         }
+    }
+    
+    private IEnumerator DisplayNoMoneyText()
+    { 
+        while (true){
+            notEnoughMoneyText.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(1, 0, 0, 1), Time.deltaTime);
+            }
     }
 }

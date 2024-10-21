@@ -10,9 +10,12 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     
+    
+    [Header("Enemy Settings")]
     int health;
     int attack;
     [SerializeField] int speed;
+    [SerializeField] enemyType type;
     enum enemyType {standard, silver, gold}
     [SerializeField] int standardEnemyHealth;
     [SerializeField] int silverEnemyHealth;
@@ -20,16 +23,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] int standardEnemyAttack;
     [SerializeField] int silverEnemyAttack;
     [SerializeField] int goldEnemyAttack;
-    [SerializeField] enemyType type;
+    
+    [Header("Other Settings")]
     [SerializeField] Rigidbody2D rb;
     public MoneyManager moneyManager;
-    
-
-    
+    [SerializeField] HealthManager healthManager;
     float tickTimer;
     void Start()
     {
-        
+        healthManager = GameObject.Find("HealthManager").GetComponent<HealthManager>();
         if (type == enemyType.standard)
         {
             health = standardEnemyHealth;
@@ -80,10 +82,11 @@ public class Enemy : MonoBehaviour
             TakeDamage(collision.gameObject.GetComponent<Bullet>().damage);
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("Damage zone")) healthManager.TakeDamage();
     }
     private void TakeDamage(int damageToTake)
     {
-        //Debug.Log($"took: {damageToTake} Damage");
+        
         health -= damageToTake;
         GetComponent<Hitflash>().StartHitFlash();
     }
