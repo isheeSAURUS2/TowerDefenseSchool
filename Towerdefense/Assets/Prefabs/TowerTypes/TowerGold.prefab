@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6405115630420978439}
   - component: {fileID: 1272678949577328369}
   - component: {fileID: 3468406176231774422}
+  - component: {fileID: -7303442618856824954}
   m_Layer: 8
   m_Name: TowerGold
   m_TagString: Tower
@@ -56,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 73fa9dce73d02ac448c0404a0faf418c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -104,6 +105,7 @@ MonoBehaviour:
   health: 0
   damageToUse: 0
   fireRateToUse: 0
+  animationToUse: 
   typeOfTower: 2
   standardTowerDamage: 5
   silverTowerDamage: 7
@@ -207,3 +209,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &-7303442618856824954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454695345090958056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2454f040bf2394fac40265312f385a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashTime: 0.3

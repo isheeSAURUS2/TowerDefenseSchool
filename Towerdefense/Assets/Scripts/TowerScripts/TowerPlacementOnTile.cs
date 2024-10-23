@@ -41,8 +41,7 @@ public class TowerPlacementOnTile : MonoBehaviour
         }
         else if (money < standardTowerCost)
         {
-            StartCoroutine("DisplayNoMoneyText");
-            Debug.LogWarning("not enough doekoe");
+            StartCoroutine(DisplayNotEnoughMoneyText());
         }
 
         DeactivateTowerPlacementUI();
@@ -56,8 +55,7 @@ public class TowerPlacementOnTile : MonoBehaviour
         }
         else if (money < silverTowerCost)
         {
-            StartCoroutine("DisplayNoMoneyText");
-            Debug.LogWarning("not enough doekoe");
+            StartCoroutine(DisplayNotEnoughMoneyText()); 
         }
 
         DeactivateTowerPlacementUI();
@@ -71,8 +69,7 @@ public class TowerPlacementOnTile : MonoBehaviour
         }
         else if (money < goldTowerCost)
         {
-            StartCoroutine("DisplayNoMoneyText");
-            Debug.LogWarning("not enough doekoe");
+            StartCoroutine(DisplayNotEnoughMoneyText());
         }
 
         DeactivateTowerPlacementUI();
@@ -111,11 +108,19 @@ public class TowerPlacementOnTile : MonoBehaviour
             tileScripts.Add(tilesDetected[i]);
         }
     }
-    
-    private IEnumerator DisplayNoMoneyText()
-    { 
-        while (true){
-            notEnoughMoneyText.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(1, 0, 0, 1), Time.deltaTime);
-            }
+
+    private IEnumerator DisplayNotEnoughMoneyText ()
+    {
+        notEnoughMoneyText.color = new Color(notEnoughMoneyText.color.r, notEnoughMoneyText.color.g, notEnoughMoneyText.color.b, 1f);
+        float fadeTime = 2f;
+        float currentTime = 0f;
+        while (currentTime < fadeTime)
+        {
+            float alpha = Mathf.Lerp(1f, 0f, currentTime / fadeTime);
+            notEnoughMoneyText.color = new Color(notEnoughMoneyText.color.r, notEnoughMoneyText.color.g, notEnoughMoneyText.color.b, alpha);
+            currentTime += Time.deltaTime;
+            yield return null;
+        }
+        yield break;
     }
 }

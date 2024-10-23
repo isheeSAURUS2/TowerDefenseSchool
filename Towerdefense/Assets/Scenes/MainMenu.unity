@@ -571,9 +571,7 @@ GameObject:
   - component: {fileID: 1632779397}
   - component: {fileID: 1632779396}
   m_Layer: 0
-  m_Name: "DALL\xB7E 2024-10-16 12.09.17 - A main menu background with two pixel
-    art characters_ one is a small brown creature with a unique shape, and the other
-    is a series of blue-gray ducks"
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -620,7 +618,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f5b8a4444ee4a9143b7c4cd9987c362f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fa0a3028eac8ef5429c3cf13816482ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

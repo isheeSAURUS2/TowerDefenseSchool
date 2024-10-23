@@ -78,7 +78,7 @@ public class Tower : MonoBehaviour
         {
             if (hit.transform.CompareTag("Enemy") && !hasStartedShooting)
             {
-                Debug.LogWarning("colliding with enemy");
+                
                 newRoutine = StartCoroutine(ShootBullet(damageToUse, fireRateToUse));
                 hasStartedShooting = true;
             }
@@ -86,7 +86,7 @@ public class Tower : MonoBehaviour
         }
         else if(hit.collider == null && hasStartedShooting)
         {
-            Debug.Log("Stopped Coliding");
+            
             StopCoroutine(newRoutine);
             hasStartedShooting = false;
         }

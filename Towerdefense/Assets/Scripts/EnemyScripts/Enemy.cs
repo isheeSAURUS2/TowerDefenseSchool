@@ -70,6 +70,7 @@ public class Enemy : MonoBehaviour
             {
                 Debug.Log("did damage");
                 collision.gameObject.GetComponent<Tower>().health -= attack;
+                collision.gameObject.GetComponent<Hitflash>().StartHitFlash();
                 tickTimer = 0;
             }
             

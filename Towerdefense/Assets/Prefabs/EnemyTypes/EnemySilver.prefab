@@ -164,15 +164,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 22
+  type: 1
   standardEnemyHealth: 50
-  silverEnemyHealth: 75
-  goldEnemyHealth: 125
+  silverEnemyHealth: 100
+  goldEnemyHealth: 150
   standardEnemyAttack: 2
   silverEnemyAttack: 3
   goldEnemyAttack: 5
-  type: 1
   rb: {fileID: 5583621359215337033}
   moneyManager: {fileID: 0}
+  healthManager: {fileID: 0}
 --- !u!114 &5015448283627970771
 MonoBehaviour:
   m_ObjectHideFlags: 0

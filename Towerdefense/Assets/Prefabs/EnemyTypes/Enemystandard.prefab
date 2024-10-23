@@ -131,8 +131,8 @@ MonoBehaviour:
   speed: 22
   type: 0
   standardEnemyHealth: 50
-  silverEnemyHealth: 75
-  goldEnemyHealth: 125
+  silverEnemyHealth: 100
+  goldEnemyHealth: 150
   standardEnemyAttack: 2
   silverEnemyAttack: 3
   goldEnemyAttack: 5
