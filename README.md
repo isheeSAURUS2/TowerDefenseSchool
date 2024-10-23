@@ -19,7 +19,7 @@
 
 ## Product 3: Build op Github
 *hier een link naar de final release
-[Release](https://github.com/erwinhenraat/TowerDefenseTemplate/releases](https://github.com/isheeSAURUS2/TowerDefenseSchool/releases/tag/final))*
+[Release](https://github.com/isheeSAURUS2/TowerDefenseSchool/releases/tag/final)*
 
 ## Product 4: Game met Sprites(animations) en Textures 
 
