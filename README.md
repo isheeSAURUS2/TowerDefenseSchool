@@ -24,7 +24,9 @@
 ## Product 4: Game met Sprites(animations) en Textures 
 
 *Animations van de enemy en towers*
+
 ![Textures Sprites](images/EnemyAnimationPreview.gif)![Textures Sprites](images/TowerAnimationPreview.gif)
+
 ## Product 5: Issues met debug screenshots op GitHub 
 
 *ik heb helaas maar een issue omdat ik alle bugs die ik tegenkwam snel heb gefixt
@@ -76,8 +78,6 @@ PVZ rip-off
         -basic banaan maar dan grijs
     -goude banaan
         -you know the drill
-
-Omschrijf per mechanic welke game design keuzes je hebt gemaakt en waarom je dit hebt gedaan.
 
 *  **Je game bevat torens die kunnen mikken en schieten op een bewegend doel.** 
 
@@ -149,17 +149,9 @@ classDiagram
 ## Product 9: SCRUM planning inschatting 
 
 *ik heb op mijn trello storypoints gebruikt voor het inschatten van de tijd op userstorys ik gebruik 0-10 storypoints
-[Link trello](https://trello.com/b/w60wkKSU/examen-paraphrenia)*
+[Link trello](https://trello.com/b/aGEzcIRM/towerdefense)*
 
 ## Product 10: Gitflow conventions
 
-Je hebt voor je eigen project in je readme gitflow conventies opgesteld en je hier ook aantoonbaar aan gehouden. 
-
-De gitflow conventions gaan uit van een extra branch Develop naast de "Master"/"Main". Op de main worden alleen stabiele releases gezet.
-
-Verder worden features op een daarvoor bedoelde feature banch ontwikkeld. Ook kun je gebruik maken van een hotfix brancg vanaf develop.
-
-Leg hier uit welke branches jij gaat gebruiken en wat voor namen je hier aan gaat meegeven. Hoe vaak ga je comitten en wat voor commit messages wil je geven?
-
-Meer info over het gebruiken van gitflow [hier](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+*ik heb dit leerdoel niet bereikt helaas in het volgende project ga ik zorgen dat het goed komt*
 
